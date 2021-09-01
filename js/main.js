@@ -3,6 +3,12 @@ window.addEventListener('DOMContentLoaded', function (e) {
 });
   
 function handlePresentationClick(e) {
-    alert('clicked');
+    var current = document.querySelector('hp-slide.active');
+    var next = current.nextElementSibling;
+
+    if (next) {
+        current.classList.remove('active');
+        next.classList.add('active');
+    }
 }
   
