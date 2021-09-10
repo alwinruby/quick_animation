@@ -59,6 +59,19 @@ function showLearning() {
   slide.classList.add(ii ? 'learn-no' : 'learn-yes');
 }
 
-function runLearningSequence() {
+function startLearning(learningDelay) {
   showLearning();
+
+  setTimeout(function () {
+    if (learningDelay > 1.1) {
+      showLearning();
+
+      learningDelay = Math.pow(learningDelay, 1/1.05);
+      startLearning(learningDelay);
+    }
+  }, learningDelay);
+}
+
+function runLearningSequence() {
+  startLearning(1500);
 }
